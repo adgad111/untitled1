@@ -548,3 +548,96 @@ public class WindowsMenu extends JFrame{
         setJMenuBar(menubar);
     }
 }*/
+
+
+/*
+//鼠标事件练习
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+public class E {
+    public static void main(String[] args) {
+        WindowsMouse win =new WindowsMouse();
+        win.setTitle("鼠标事件");
+        win.setBounds(100,100,500,500);
+    }
+}
+
+public class MousePolice implements MouseListener {
+    JTextArea area;
+
+    public void setJTextArea(JTextArea area) {
+        this.area = area;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(e.getClickCount()>=2){
+            area.setText("鼠标连击，位置："+"("+e.getX()+","+e.getY()+")");
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        area.append("\n 鼠标按下，位置："+"("+e.getX()+","+e.getY()+")");
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        area.append("\n 鼠标按下，位置："+"("+e.getX()+","+e.getY()+")");
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        if(e.getSource() instanceof JButton){
+            area.append("\n 鼠标进入按钮，位置"+"("+e.getX()+","+e.getY()+")");
+        }
+        if(e.getSource() instanceof JTextField){
+            area.setText("\n 鼠标进入文本框，位置"+"("+e.getX()+","+e.getY()+")");
+        }
+        if(e.getSource() instanceof JTextArea)
+        {   area.setText("\n 鼠标进入文本区，位置"+"("+e.getX()+","+e.getY()+")"); }
+//此段无法触发，因为文本区没有注册监视器，因此getSoure()方法无法获取触发监视器的源对象
+        if(e.getSource() instanceof JFrame){
+            area.setText("\n 鼠标进入窗口，位置"+"("+e.getX()+","+e.getY()+"）");
+        }
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        area.append("\n 鼠标退出，位子"+"("+e.getX()+","+e.getY()+")");
+    }
+}
+
+
+public class WindowsMouse extends JFrame {
+    JTextField text;
+    JButton button;
+    JTextArea textArea;
+    MousePolice police;
+
+    WindowsMouse (){
+        init();
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    void init(){
+        setLayout(new FlowLayout());//设置布局
+        text=new JTextField(8);
+        button=new JButton("按钮");
+        textArea=new JTextArea(5,28);
+        police=new MousePolice();
+        police.setJTextArea(textArea);
+        button.addMouseListener(police);
+        text.addMouseListener(police);
+        addMouseListener(police);
+        add(button);
+        add(text);
+        add(new JScrollPane(textArea));
+
+    }
+
+}
+*/
