@@ -4,7 +4,7 @@ package com.test;
 import javax.swing.*;
 import java.sql.*;
 
-/*
+
 //数据库连接和基础查询
 public class E {
     public static void main(String[] args) {
@@ -22,7 +22,9 @@ public class E {
         }
       try {
           Statement sql = con.createStatement();
+//          Statement sql=con.createStatement(int type, int concurrency);
           ResultSet rs = sql.executeQuery("SELECT * FROM student ");
+          ResultSet resultSet = sql.executeQuery(SQL语句);
           while (rs.next()) {
               String id = rs.getString(1);
               String name = rs.getString(2);
@@ -39,4 +41,4 @@ public class E {
           }
         }
     }
-*/
+
