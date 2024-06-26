@@ -676,7 +676,6 @@ public class E {
           con.close();
       }catch(SQLException ee){
               System.out.println(ee);
-
           }
         }
     }
